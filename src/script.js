@@ -1,10 +1,38 @@
+// main elements
 const body = document.querySelector('body')
 const container = document.querySelector('.task-container')
+const modal = document.querySelector('.modal')
 // get all buttons from menu
 const createBtn = document.querySelector('.create-btn')
 const editBtn = document.querySelector('.edit-btn')
 const deleteBtn = document.querySelector('.delete-btn')
 const settingsBtn = document.querySelector('.settings-btn')
+// modal
+const inputTitle = document.querySelector('#input-title')
+const inputDesc = document.querySelector('#input-desc')
+const submit = document.querySelector('.form-submit')
+// icon
+const closeIcon = document.querySelector('.fa-x')
+// shadow
+const shadow = document.querySelector('.shadow')
+
+// event listeners
+
+createBtn.addEventListener('click',() => {
+    showUpModal()
+})
+
+closeIcon.addEventListener('click', () => {
+    closeModal()
+})
+
+submit.addEventListener('click', () => {
+   createTask(getDataFromInputs().title,getDataFromInputs().desc)
+   clearModal()
+   closeModal() 
+})
+
+// functions
 
 const createTask = (titleValue,descValue) => {
     // gets task elements to variables
@@ -32,8 +60,27 @@ const createTask = (titleValue,descValue) => {
     container.append(task)
 }
 
-createBtn.addEventListener('click',() => {
+const getDataFromInputs = () => {
+    const titleValue = inputTitle.value
+    const descValue = inputDesc.value
+    return {
+        title: titleValue,
+        desc: descValue
+    }
+}
 
+const closeModal = () => {
+    modal.style.display = 'none'
+    shadow.style.display = 'none'
+}
 
-    createTask('test','lorem ipsum dsnjsd jidsad')
-})
+const clearModal = () => {
+    inputTitle.value = ''
+    inputDesc.value = ''
+}
+
+const showUpModal = () => {
+    modal.style.display = 'block'
+    shadow.style.display = 'block'
+}
+

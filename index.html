@@ -41,6 +41,31 @@
 
     </div>
 
+    <div class="modal">
+        <div class="modal-form">
+            <label for="input-title" class="label">1. Write title of the task *
+                <input type="text" id="input-title" class="input-text" required>
+            </label>
+            <label for="input-desc" class="label">2. Write description of your task
+                <input type="text" id="input-desc" class="input-text">
+            </label>
+            <label for="input-category" class="label">3. Add category to task (min. 1) *
+                <div class="input-category-container">
+                    <label class="category-label">
+                        Main
+                        <input type="checkbox" checked>
+                    </label>
+                </div>
+                <button class="btn add-category-btn">Add</button>
+            </label>
+            <p class="form-info">* - required.</p>
+            <button class="form-submit">Send</button>
+        </div>
+        <i class="fa-solid fa-x"></i>
+   </div>
+
+   <div class="shadow"></div>
+
     <script src="./src/script.js"></script>
 </body>
 </html>

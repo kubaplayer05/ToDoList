@@ -7,14 +7,16 @@ const createBtn = document.querySelector('.create-btn')
 const editBtn = document.querySelector('.edit-btn')
 const deleteBtn = document.querySelector('.delete-btn')
 const settingsBtn = document.querySelector('.settings-btn')
-// modal
+// main modal
 const inputTitle = document.querySelector('#input-title')
 const inputDesc = document.querySelector('#input-desc')
 const submit = document.querySelector('.form-submit')
 // icon
-const closeIcon = document.querySelector('.fa-x')
+const closeIcon = document.querySelectorAll('.fa-x')
 // shadow
 const shadow = document.querySelector('.shadow')
+// setting modal
+const settings = document.querySelector('.settings-modal')
 
 // event listeners
 
@@ -22,8 +24,14 @@ createBtn.addEventListener('click',() => {
     showUpModal()
 })
 
-closeIcon.addEventListener('click', () => {
-    closeModal()
+settingsBtn.addEventListener('click',() => {
+    showUpSettings()
+})
+
+closeIcon.forEach(icon => {
+    icon.addEventListener('click', (e) => {
+        closeModal(e)
+    })
 })
 
 submit.addEventListener('click', () => {
@@ -69,7 +77,8 @@ const getDataFromInputs = () => {
     }
 }
 
-const closeModal = () => {
+const closeModal = (e) => {
+    const modal = e.target.parentElement;
     modal.style.display = 'none'
     shadow.style.display = 'none'
 }
@@ -84,3 +93,7 @@ const showUpModal = () => {
     shadow.style.display = 'block'
 }
 
+const showUpSettings = () => {
+    settings.style.display = 'flex'
+    shadow.style.display = 'block'
+}

@@ -64,7 +64,7 @@ body {
     font-size: 1.8rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 5px 0, rgba(0, 0, 0, 0.1) 0 0 1px 0;
     border-radius: 5px;
 }
 
@@ -245,8 +245,7 @@ body {
 
 .form-submit {
     width: 100px;
-    margin: 30px auto;
-    margin-bottom: 0;
+    margin: 30px auto 0;
     padding: 8px 5px;
     border-radius: 15px;
     font-size: 1.8rem;
@@ -347,6 +346,7 @@ body {
     width: 100px;
     height: 75px;
     cursor: pointer;
+    z-index: 3;
 }
 
 .theme-card-color {

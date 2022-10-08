@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./style.css">
 </head>
-<body data-theme="yellow">
+<body>
 
     <div class="app">
        <div class="nav-menu">
@@ -33,7 +33,7 @@
 
     </div>
 
-    <div class="modal">
+    <div class="modal task-modal">
         <div class="modal-form">
             <label for="input-title" class="label">1. Write title of the task *
                 <input type="text" id="input-title" class="input-text" required>
@@ -41,7 +41,7 @@
             <label for="input-desc" class="label">2. Write description of your task
                 <input type="text" id="input-desc" class="input-text">
             </label>
-            <label for="input-category" class="label">3. Add category to task (min. 1) *
+            <label class="label">3. Add category to task (min. 1) *
                 <div class="input-category-container">
                     <label class="category-label">
                         Main
@@ -60,9 +60,6 @@
         <div class="settings-options">
             <ul class="settings-list">
                 <li class="settings-list-option active-option">theme</li>
-                <li class="settings-list-option">Language</li>
-                <li class="settings-list-option">Cookies</li>
-                <li class="settings-list-option">About us</li>
             </ul>
         </div>
         <div class="settings-container">

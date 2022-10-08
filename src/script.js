@@ -1,7 +1,7 @@
 // main elements
 const body = document.querySelector('body')
 const container = document.querySelector('.task-container')
-const modal = document.querySelector('.modal')
+const taskModal = document.querySelector('.task-modal')
 // get all buttons from menu
 const createBtn = document.querySelector('.create-btn')
 const editBtn = document.querySelector('.edit-btn')
@@ -16,16 +16,19 @@ const closeIcon = document.querySelectorAll('.fa-x')
 // shadow
 const shadow = document.querySelector('.shadow')
 // setting modal
-const settings = document.querySelector('.settings-modal')
+const settingsModal = document.querySelector('.settings-modal')
 
+const thmeCards = document.querySelectorAll('.theme-card')
+
+const defaultColor = 'yellow'
 // event listeners
 
 createBtn.addEventListener('click',() => {
-    showUpModal()
+    showUpTaskModal()
 })
 
 settingsBtn.addEventListener('click',() => {
-    showUpSettings()
+    showUpSettingsModal()
 })
 
 closeIcon.forEach(icon => {
@@ -36,8 +39,16 @@ closeIcon.forEach(icon => {
 
 submit.addEventListener('click', () => {
    createTask(getDataFromInputs().title,getDataFromInputs().desc)
-   clearModal()
-   closeModal() 
+   clearTaskModal()
+   closeTaskModal()
+})
+
+thmeCards.forEach(card => {
+    card.addEventListener('click',(e) => {
+        const color = e.target.closest(".theme-card").id
+        body.setAttribute('data-theme',color)
+        localStorage.setItem('color',`${color}`)
+    })
 })
 
 // functions
@@ -62,7 +73,7 @@ const createTask = (titleValue,descValue) => {
     title.textContent = titleValue
     desc.textContent = descValue
     categoryTitle.textContent = 'Category'
-    // apends
+    // appends
     categoryDiv.append(categoryTitle)
     task.append(title,desc,categoryDiv,checkbox)
     container.append(task)
@@ -83,17 +94,33 @@ const closeModal = (e) => {
     shadow.style.display = 'none'
 }
 
-const clearModal = () => {
+const closeTaskModal = () => {
+    taskModal.style.display = 'none'
+    shadow.style.display = 'none'
+}
+
+const clearTaskModal = () => {
     inputTitle.value = ''
     inputDesc.value = ''
 }
 
-const showUpModal = () => {
-    modal.style.display = 'block'
+const showUpTaskModal = () => {
+    taskModal.style.display = 'block'
     shadow.style.display = 'block'
 }
 
-const showUpSettings = () => {
-    settings.style.display = 'flex'
+const showUpSettingsModal = () => {
+    settingsModal.style.display = 'flex'
     shadow.style.display = 'block'
 }
+
+const loadThemeColor = () => {
+    const color = localStorage.getItem('color')
+    if(color != null) {
+        body.setAttribute('data-theme',color)
+    } else {
+        body.setAttribute('data-theme',defaultColor)
+    }
+}
+
+loadThemeColor()

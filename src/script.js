@@ -98,6 +98,7 @@ const closeModal = (e) => {
 const closeTaskModal = () => {
     taskModal.style.display = 'none'
     shadow.style.display = 'none'
+    errorMsg.style.opacity = '0'
 }
 
 const clearTaskModal = () => {

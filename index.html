@@ -15,20 +15,18 @@
 
     <div class="app">
        <div class="nav-menu">
-        <button class="btn restart-btn"><i class="fa-sharp fa-solid fa-rotate-left"></i></button>
+        <button class="btn restart-btn"><i class="fa-solid fa-trash"></i></button>
         <input type="search" class="search">
         <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-        <div class="buttons-row">
-            <button class="btn create-btn"><i class="fa-solid fa-plus"></i></button>
-            <button class="btn edit-btn"><i class="fa-solid fa-pen"></i></button>
-            <button class="btn delete-btn"><i class="fa-solid fa-trash"></i></button>
-        </div>
+        <button class="btn create-btn"><i class="fa-solid fa-plus"></i></button>
+        <!-- <button class="btn edit-btn"><i class="fa-solid fa-pen"></i></button>
+        <button class="btn delete-btn"><i class="fa-solid fa-trash"></i></button> -->
         
         <button class="btn settings-btn"><i class="fa-solid fa-gear"></i></button>
        </div>
        
        <div class="task-container">
-    
+
        </div>
 
     </div>
@@ -41,16 +39,8 @@
             <label for="input-desc" class="label">2. Write description of your task
                 <input type="text" id="input-desc" class="input-text">
             </label>
-            <label class="label">3. Add category to task (min. 1) *
-                <div class="input-category-container">
-                    <label class="category-label">
-                        Main
-                        <input type="checkbox" checked>
-                    </label>
-                </div>
-                <button class="btn add-category-btn">Add</button>
-            </label>
             <p class="form-info">* - required.</p>
+            <p class="form-error">You need to write sth. in title.</p>
             <button class="form-submit">Send</button>
         </div>
         <i class="fa-solid fa-x"></i>
